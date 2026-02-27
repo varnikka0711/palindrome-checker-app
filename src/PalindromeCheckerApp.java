@@ -1,3 +1,4 @@
+import java.util.Stack;
 public class PalindromeCheckerApp {
     static final String APP_NAME = "Palindrome Checker App";
     static final String APP_VERSION = "Version 1.0";
@@ -63,6 +64,34 @@ public class PalindromeCheckerApp {
                     System.out.println("Result: The string is NOT a Palindrome.");
                 }
                 System.out.println("Program Completed.");
+
+        //uc5
+        input = "noon";
+
+                // Create a stack to store characters
+                Stack<Character> stack = new Stack<>();
+
+                // Push each character of the string into the stack
+                for (char c : input.toCharArray()) {
+                    stack.push(c);
+                }
+
+                // Assume palindrome initially
+        isPalindrome = true;
+
+                // Iterate again through original string
+                for (char c : input.toCharArray()) {
+
+                    // Pop character from stack and compare
+                    if (c != stack.pop()) {
+                        isPalindrome = false;
+                        break;
+                    }
+                }
+
+                // Display result
+                System.out.println("Input : " + input);
+                System.out.println("Is Palindrome? : " + isPalindrome);
 
     }
 }
