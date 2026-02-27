@@ -41,6 +41,28 @@ public class PalindromeCheckerApp {
                 }
 
                 System.out.println("Program Completed.");
+        //uc4
+
+                String input = "level";
+                char[] characters = input.toCharArray();
+                int start = 0;
+                int end = characters.length - 1;
+                boolean isPalindrome = true;
+                while (start < end) {
+                    if (characters[start] != characters[end]) {
+                        isPalindrome = false;
+                        break;
+                    }
+                    start++;
+                    end--;
+                }
+                System.out.println("Input String: " + input);
+                if (isPalindrome) {
+                    System.out.println("Result: The string is a Palindrome.");
+                } else {
+                    System.out.println("Result: The string is NOT a Palindrome.");
+                }
+                System.out.println("Program Completed.");
 
     }
 }
