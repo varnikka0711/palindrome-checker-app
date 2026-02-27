@@ -1,6 +1,8 @@
 import java.util.Stack;
 import java.util.Queue;
 import java.util.LinkedList;
+import java.util.Deque;
+import java.util.ArrayDeque;
 public class PalindromeCheckerApp {
     static final String APP_NAME = "Palindrome Checker App";
     static final String APP_VERSION = "Version 1.0";
@@ -69,29 +71,17 @@ public class PalindromeCheckerApp {
 
         //uc5
         input = "noon";
-
-                // Create a stack to store characters
                 Stack<Character> stack = new Stack<>();
-
-                // Push each character of the string into the stack
                 for (char c : input.toCharArray()) {
                     stack.push(c);
                 }
-
-                // Assume palindrome initially
         isPalindrome = true;
-
-                // Iterate again through original string
                 for (char c : input.toCharArray()) {
-
-                    // Pop character from stack and compare
                     if (c != stack.pop()) {
                         isPalindrome = false;
                         break;
                     }
                 }
-
-                // Display result
                 System.out.println("Input : " + input);
                 System.out.println("Is Palindrome? : " + isPalindrome);
 
@@ -110,6 +100,25 @@ public class PalindromeCheckerApp {
                     char fromStack = stack.pop();     // top element
 
                     if (fromQueue != fromStack) {
+                        isPalindrome = false;
+                        break;
+                    }
+                }
+                System.out.println("Input : " + input);
+                System.out.println("Is Palindrome? : " + isPalindrome);
+
+        //uc7
+        input = "refer";
+                Deque<Character> deque = new ArrayDeque<>();
+                for (char c : input.toCharArray()) {
+                    deque.addLast(c);
+                }
+        isPalindrome = true;
+                while (deque.size() > 1) {
+                    char front = deque.removeFirst();
+                    char rear = deque.removeLast();
+
+                    if (front != rear) {
                         isPalindrome = false;
                         break;
                     }
