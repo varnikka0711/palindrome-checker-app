@@ -13,3 +13,27 @@ public class PalindromeCheckerApp {
         System.out.println("Proceeding to Palindrome Processing...");
     }
 }
+
+//uc2
+/**
+ * UseCase2PalindromeCheckerApp
+ * Version: 1.0
+ * Description: Checks whether a hardcoded string is a palindrome.
+ */
+
+public class UseCase2PalindromeCheckerApp {
+    public static void main(String[] args) {
+        String word = "madam";
+        String reversed = "";
+        for (int i = word.length() - 1; i >= 0; i--) {
+            reversed = reversed + word.charAt(i);
+        }
+        System.out.println("Given Word: " + word);
+        if (word.equals(reversed)) {
+            System.out.println("Result: The given word is a Palindrome.");
+        } else {
+            System.out.println("Result: The given word is NOT a Palindrome.");
+        }
+        System.out.println("Program Completed.");
+    }
+}
