@@ -25,6 +25,23 @@ public class PalindromeCheckerApp {
             System.out.println("Result: The given word is NOT a Palindrome.");
         }
         System.out.println("Program Completed.");
+
+    //uc3
+                String original = "racecar";
+                String reverse = "";
+                for (int i = original.length() - 1; i >= 0; i--) {
+                    reverse = reverse + original.charAt(i);
+                }
+                System.out.println("Original String: " + original);
+                System.out.println("Reversed String: " + reverse);
+                if (original.equals(reverse)) {
+                    System.out.println("Result: The string is a Palindrome.");
+                } else {
+                    System.out.println("Result: The string is NOT a Palindrome.");
+                }
+
+                System.out.println("Program Completed.");
+
     }
 }
 
