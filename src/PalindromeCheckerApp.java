@@ -11,18 +11,8 @@ public class PalindromeCheckerApp {
         System.out.println("---------------------------------------");
         System.out.println("Program initialized successfully.");
         System.out.println("Proceeding to Palindrome Processing...");
-    }
-}
 
-//uc2
-/**
- * UseCase2PalindromeCheckerApp
- * Version: 1.0
- * Description: Checks whether a hardcoded string is a palindrome.
- */
-
-public class UseCase2PalindromeCheckerApp {
-    public static void main(String[] args) {
+        //uc2
         String word = "madam";
         String reversed = "";
         for (int i = word.length() - 1; i >= 0; i--) {
@@ -37,3 +27,4 @@ public class UseCase2PalindromeCheckerApp {
         System.out.println("Program Completed.");
     }
 }
+
