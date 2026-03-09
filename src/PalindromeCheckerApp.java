@@ -1,65 +1,39 @@
-/**
- * ************************************************************
- * MAIN CLASS - UseCase11PalindromeCheckerApp
- * ************************************************************
- *
- * Use Case 11: Palindrome Validation Logic
- *
- * Description:
- * This class validates whether a given word is a palindrome
- * by comparing characters from both ends using pointers.
- *
- * @author Developer
- * @version 11.0
- */
+import java.util.Stack;
+
 public class PalindromeCheckerApp {
 
-    /**
-     * Application entry point for UC11.
-     *
-     * @param args Command-line arguments
-     */
     public static void main(String[] args) {
-        // Input as shown in the expected output example
-        String input = "racecar";
+        String input = "level";
+        PalindromeStrategy strategy = new StackStrategy();
 
-        // Instantiate the analyzer service
-        PalindromeAnalyzer analyzer = new PalindromeAnalyzer();
+        long startTime = System.nanoTime();
+        boolean isPalindrome = strategy.check(input);
+        long endTime = System.nanoTime();
 
-        // Call the checkPalindrome method
-        boolean isPalindrome = analyzer.checkPalindrome(input);
+        long executionTime = endTime - startTime;
 
-        // Print the output in the required format
         System.out.println("Input : " + input);
-        System.out.println("Is Palindrome : " + isPalindrome);
+        System.out.println("Is Palindrome? : " + isPalindrome);
+        System.out.println("Execution Time : " + executionTime + " ns");
     }
 }
 
-/**
- * Service class that contains palindrome logic.
- */
-class PalindromeAnalyzer {
+interface PalindromeStrategy {
+    boolean check(String input);
+}
 
-    /**
-     * Checks whether the input string is a palindrome.
-     *
-     * @param word The input string to check.
-     * @return true if palindrome, else false.
-     */
-    public boolean checkPalindrome(String word) {
-        // Implementation based on the hint provided
-        int start = 0;
-        int end = word.length() - 1;
-
-        while (start < end) {
-            // Compare characters at current pointer positions
-            if (word.charAt(start) != word.charAt(end)) {
-                return false; // Characters don't match, not a palindrome
-            }
-            start++; // Move the start pointer forward
-            end--;   // Move the end pointer backward
+class StackStrategy implements PalindromeStrategy {
+    @Override
+    public boolean check(String input) {
+        Stack<Character> stack = new Stack<>();
+        for (char c : input.toCharArray()) {
+            stack.push(c);
         }
-
-        return true; // All characters matched
+        for (char c : input.toCharArray()) {
+            if (c != stack.pop()) {
+                return false;
+            }
+        }
+        return true;
     }
 }
